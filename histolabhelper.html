@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histology Lab Exam — Tissue Recognition Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    background: #f7f4ee;
+    color: #1a1a1a;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    font-family: 'Georgia', serif;
+  }
+  .subtitle {
+    font-size: 11px;
+    color: #666;
+    margin-top: -12px;
+    margin-bottom: 16px;
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 12px;
+    break-inside: avoid;
+  }
+  .card.full {
+    grid-column: 1 / -1;
+  }
+  .card h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #444;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid #e0e0e0;
+    font-family: sans-serif;
+  }
+  .card h3 {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 6px 0 2px;
+    color: #1a1a1a;
+    font-family: sans-serif;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-family: sans-serif;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+  }
+  .b-blue { background: #dbeafe; color: #1e40af; }
+  .b-green { background: #dcfce7; color: #166534; }
+  .b-amber { background: #fef3c7; color: #92400e; }
+  .b-red { background: #fee2e2; color: #991b1b; }
+  .b-purple { background: #ede9fe; color: #5b21b6; }
+  .b-teal { background: #ccfbf1; color: #0f766e; }
+  .b-pink { background: #fce7f3; color: #9d174d; }
+  .b-gray { background: #f3f4f6; color: #374151; }
+  p { margin: 2px 0; }
+  ul { margin: 2px 0; padding-left: 14px; }
+  li { margin: 1px 0; }
+  .key { font-weight: 700; }
+  .warn { color: #b45309; font-weight: 600; }
+  .tip { 
+    background: #fefce8; 
+    border-left: 3px solid #ca8a04; 
+    padding: 4px 8px; 
+    margin: 6px 0 2px;
+    font-family: sans-serif;
+    font-size: 12px;
+    border-radius: 0 3px 3px 0;
+  }
+  .steps { counter-reset: step; }
+  .step { 
+    display: flex; 
+    gap: 8px; 
+    margin: 3px 0;
+    align-items: flex-start;
+  }
+  .step-n {
+    min-width: 18px;
+    height: 18px;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-family: sans-serif;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 11.5px;
+    margin: 4px 0;
+    font-family: sans-serif;
+  }
+  th { 
+    background: #f3f4f6; 
+    font-weight: 600; 
+    padding: 3px 6px; 
+    text-align: left; 
+    border: 0.5px solid #e0e0e0;
+    font-size: 11px;
+  }
+  td { 
+    padding: 2px 6px; 
+    border: 0.5px solid #e0e0e0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #fafafa; }
+  .section-sep {
+    grid-column: 1 / -1;
+    border-top: 2px solid #1a1a1a;
+    padding-top: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: sans-serif;
+    letter-spacing: -0.2px;
+    color: #1a1a1a;
+    margin-top: 6px;
+  }
+  @media print {
+    body { background: white; }
+    .page { padding: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Histology Lab Exam — Tissue Recognition</h1>
+<p class="subtitle">Bologna · Morphology & Development · G3 · May 2026 — identify → describe → explain</p>
+
+<!-- GENERAL APPROACH -->
+<div class="grid" style="margin-bottom:10px">
+  <div class="card full">
+    <h2>General approach at the microscope</h2>
+    <div class="grid-3" style="gap:8px; margin-top:2px">
+      <div>
+        <h3>Step 1 — low power first</h3>
+        <p>Look at the overall architecture. Where are the empty spaces (lumens)? Epithelia face them. Is tissue solid or does it have tubules/follicles/trabeculae?</p>
+      </div>
+      <div>
+        <h3>Step 2 — identify landmarks</h3>
+        <p>Nucleus position, number of layers, cell shape, matrix color, staining intensity (basophilic = blue/purple, acidophilic = pink). Stains: H&E standard; PAS for glycogen/mucus.</p>
+      </div>
+      <div>
+        <h3>Step 3 — 5-min oral format</h3>
+        <p><em>"This is [tissue]. I can identify it by [1–2 key features]. The structure I see consists of [architecture]. These cells are [shape/staining]. Their function is [brief]."</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EPITHELIA -->
+<div class="section-sep">Covering Epithelia</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Classification logic</h2>
+    <p><span class="key">Layers:</span> simple (1 layer) vs stratified (multiple). Stratified = classified by <em>superficial</em> cell shape.</p>
+    <p style="margin-top:4px"><span class="key">Cell shape:</span> squamous (flat) · cuboidal (square, central nucleus) · columnar (tall, basal nucleus)</p>
+    <p style="margin-top:4px"><span class="key">Special types:</span> pseudostratified (all on basal lamina, different heights → looks stratified) · transitional/urothelium (dome/umbrella cells)</p>
+    <div class="tip">The nucleus tells you shape: central round = cuboidal, basal oval = columnar, flat = squamous.</div>
+  </div>
+
+  <div class="card">
+    <h2>Quick recognition table</h2>
+    <table>
+      <tr><th>Type</th><th>Key visual</th><th>Where</th></tr>
+      <tr><td>Simple squamous</td><td>Flat cells, sparse nuclei in section (tile-floor view)</td><td>Alveoli, Bowman's capsule, endothelium</td></tr>
+      <tr><td>Simple cuboidal</td><td>Square cells, central round nucleus</td><td>Kidney tubules, gland ducts, ovary surface</td></tr>
+      <tr><td>Simple columnar</td><td>Tall cells, nuclei all same basal level; brush border → intestine</td><td>GI tract, gallbladder, gland ducts</td></tr>
+      <tr><td>Stratified squamous non-ker.</td><td>Multiple layers, squamous surface, no keratin</td><td>Oral mucosa, esophagus, vagina</td></tr>
+      <tr><td>Stratified squamous ker.</td><td>Anucleated flat cells at surface (pink keratin layer)</td><td>Skin (epidermis)</td></tr>
+      <tr><td>Pseudostratified columnar</td><td>All cells touch basal lamina, nuclei at diff heights; <strong>cilia</strong> at apex</td><td>Trachea, bronchi</td></tr>
+      <tr><td>Transitional (urothelium)</td><td>Dome/umbrella cells at surface; cells flatten when bladder full</td><td>Urinary tract (relaxed = domed; full = flat)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Apical specializations</h2>
+    <h3>Cilia <span class="badge b-blue">9+2 axoneme</span></h3>
+    <p>Motile, hair-like (~7–10 µm). Hundreds per cell. In respiratory tract → move mucus. In oviduct → move egg. Visible as a fuzzy apical fringe under LM.</p>
+    <h3>Microvilli / brush border</h3>
+    <p>Cylindrical projections, actin core. Appear as a <span class="key">striated/brush border</span> in intestinal absorptive cells and kidney proximal tubule. Increase surface area.</p>
+    <h3>Stereocilia</h3>
+    <p>Long, non-motile microvilli. In epididymis and inner ear.</p>
+  </div>
+
+  <div class="card">
+    <h2>Basement membrane (always present)</h2>
+    <p><span class="key">Basal lamina</span> (epithelial origin) + <span class="key">lamina reticularis</span> (fibroblast origin) = <strong>basement membrane</strong>.</p>
+    <p style="margin-top:4px">Basal lamina layers: lamina lucida (laminin, integrins) + lamina densa (collagen IV mesh).</p>
+    <p style="margin-top:4px">Lamina reticularis: collagen I/III, fibronectin.</p>
+    <div class="tip">Epithelium = avascular. No blood vessels within epithelium — nutrients diffuse from adjacent CT.</div>
+  </div>
+</div>
+
+<!-- GLANDULAR EPITHELIA -->
+<div class="section-sep">Glandular Epithelia</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Exocrine glands — classification</h2>
+    <table>
+      <tr><th>Criterion</th><th>Options</th></tr>
+      <tr><td>Duct branching</td><td>Simple (unbranched) · Compound (branched)</td></tr>
+      <tr><td>Secretory shape</td><td>Tubular · Acinar/alveolar (flask-shaped) · Tubulo-acinar</td></tr>
+      <tr><td>Secretion type</td><td>Serous (watery, protein-rich) · Mucous (thick, glycoprotein) · Mixed</td></tr>
+      <tr><td>Mode</td><td>Merocrine (exocytosis, no loss) · Apocrine (apical cytoplasm shed) · Holocrine (whole cell dies)</td></tr>
+    </table>
+    <div class="tip">Goblet cell = unicellular mucous gland. Nucleus displaced basally; apical theca full of mucinogen droplets (blue with PAS).</div>
+  </div>
+
+  <div class="card">
+    <h2>Key gland examples to recognize</h2>
+    <h3>Sweat gland <span class="badge b-gray">simple coiled tubular · merocrine</span></h3>
+    <p>Deep in dermis. Simple cuboidal epithelium. Coiled appearance in section → multiple cross-sections of same duct.</p>
+    <h3>Sebaceous gland <span class="badge b-amber">simple branched acinar · holocrine</span></h3>
+    <p>Attached to hair follicle. Cells enlarge with lipid → die and release sebum. Large pale vacuolated cells at center.</p>
+    <h3>Salivary glands <span class="badge b-teal">compound tubulo-acinar</span></h3>
+    <p>Serous acini = dark, round cells, small lumen. Mucous acini = pale, flat nuclei, large lumen. Mixed → serous demilunes cap mucous acini.</p>
+    <h3>Pancreatic exocrine <span class="badge b-blue">compound acinar · serous</span></h3>
+    <p>Serous acini with centroacinar cells (pale, small) in lumen center — hallmark of pancreas. Basophilic basal cytoplasm (lots of RER for zymogen).</p>
+  </div>
+
+  <div class="card">
+    <h2>Endocrine glands — key features</h2>
+    <p><span class="key">No ducts</span> · Secrete into blood · <span class="key">Fenestrated capillaries</span> everywhere.</p>
+    <p style="margin-top:4px">Parenchyma organized as:</p>
+    <ul>
+      <li><span class="key">Cord type</span>: anastomosing cords of cells around capillaries (most endocrine glands, adrenal cortex, adenohypophysis)</li>
+      <li><span class="key">Follicle type</span>: cells form spherical follicles around colloid (thyroid gland)</li>
+    </ul>
+    <h3>Hypophysis recognition</h3>
+    <p>Two distinct lobes separate in section (artifact). <span class="key">Adenohypophysis</span>: cords of cells, acidophils (pink) + basophils (blue) + chromophobes (pale). <span class="key">Neurohypophysis</span>: axon terminals, few nuclei (pituicytes = glial), Herring bodies (storage granules).</p>
+    <h3>Thyroid recognition</h3>
+    <p>Follicles filled with <span class="key">colloid</span> (homogeneous pink material). Follicular cells = simple cuboidal (inactive) → columnar (active). Parafollicular (C) cells between follicles.</p>
+    <h3>Adrenal recognition</h3>
+    <p>Outer <span class="key">cortex</span> (3 zones: glomerulosa/fasciculata/reticularis) + inner <span class="key">medulla</span> (chromaffin cells, dark stain, venous sinuses).</p>
+  </div>
+
+  <div class="card">
+    <h2>Secretion modes (need to know for oral)</h2>
+    <div class="step"><div class="step-n">M</div><div><span class="key">Merocrine</span>: pure exocytosis, cell intact after. Most glands. Example: parotid, pancreas.</div></div>
+    <div class="step"><div class="step-n">A</div><div><span class="key">Apocrine</span>: apical cytoplasm pinches off with secretion. Lactating mammary gland. Decapitation secretion under EM.</div></div>
+    <div class="step"><div class="step-n">H</div><div><span class="key">Holocrine</span>: entire cell dies, becomes product. Sebaceous glands. Central cells are dead/degenerating.</div></div>
+  </div>
+</div>
+
+<!-- CONNECTIVE TISSUE -->
+<div class="section-sep">Connective Tissue Proper</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Connective tissue — key features</h2>
+    <p>Three components: <span class="key">cells</span> + <span class="key">fibers</span> + <span class="key">ground substance (ECM)</span>.</p>
+    <p style="margin-top:4px"><span class="key">Loose CT</span>: many cells (fibroblasts, mast cells, macrophages), few fibers, abundant ground substance. Widely spaced fibers.</p>
+    <p style="margin-top:4px"><span class="key">Dense CT</span>: few cells, many fibers. <em>Regular</em> = parallel fibers (tendons, ligaments); <em>irregular</em> = random orientation (dermis).</p>
+    <div class="tip">No epithelium → no apical-basal polarity, no tight junctions. CT always has ECM. Fibroblasts are the resident cells.</div>
+    <h3>Fibers to recognize</h3>
+    <p><span class="key">Collagen</span>: thick, wavy, pink (H&E), inelastic, strong. Type I = CT/bone; II = cartilage; III = reticular.</p>
+    <p><span class="key">Elastic</span>: thinner, refractile, stretchy. Stain with orcein (black/purple). In aorta, ligaments.</p>
+  </div>
+
+  <div class="card">
+    <h2>Adipose tissue</h2>
+    <table>
+      <tr><th></th><th>White (WAT)</th><th>Brown (BAT)</th></tr>
+      <tr><td>Droplet</td><td>Single large (unilocular)</td><td>Multiple small (multilocular)</td></tr>
+      <tr><td>Nucleus</td><td>Peripheral (pushed to edge)</td><td>Central</td></tr>
+      <tr><td>Mitochondria</td><td>Few</td><td>Abundant (= brown color)</td></tr>
+      <tr><td>H&E look</td><td>Empty signet-ring cells (fat dissolved by xylene)</td><td>Granular cytoplasm, smaller cells</td></tr>
+      <tr><td>Function</td><td>Energy storage</td><td>Thermogenesis (UCP-1)</td></tr>
+    </table>
+    <div class="tip">In standard paraffin sections, fat is dissolved → white adipocytes look like empty bubbles with a thin rim and eccentric flat nucleus.</div>
+  </div>
+</div>
+
+<!-- CARTILAGE -->
+<div class="section-sep">Cartilage</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Cartilage — universal features</h2>
+    <p><span class="key">Avascular, aneural, alymphatic.</span> Chondrocytes in <span class="key">lacunae</span>. Surrounded by ECM.</p>
+    <p style="margin-top:4px">Three cell types: chondrogenic cells (precursors, spindle) → chondroblasts (active, basophilic) → chondrocytes (mature, in lacunae).</p>
+    <p style="margin-top:4px"><span class="key">Isogenous groups</span>: clusters of chondrocytes from same parent cell (interstitial growth). Visible as 2–8 cells sharing a territory.</p>
+    <p style="margin-top:4px"><span class="key">Territorial matrix</span>: immediately around lacuna, rich in proteoglycans → darker/basophilic. <span class="key">Interterritorial matrix</span>: between lacunae, richer in collagen.</p>
+    <div class="tip">Perichondrium = outer fibrous layer (fibroblasts) + inner chondrogenic layer. Absent in articular cartilage and fibrocartilage.</div>
+  </div>
+
+  <div class="card">
+    <h2>Three types to distinguish</h2>
+    <table>
+      <tr><th>Type</th><th>Key recognition</th><th>Location</th></tr>
+      <tr><td><strong>Hyaline</strong></td><td>Glassy, blue-grey matrix (collagen II invisible). Perichondrium present. Isogenous groups. Most common.</td><td>Tracheal rings, costal cartilage, articular surfaces, fetal skeleton</td></tr>
+      <tr><td><strong>Elastic</strong></td><td>Matrix laced with <span class="warn">visible elastic fibers</span> (pink threads in H&E, darker with orcein). More flexible. Folding artifacts in section.</td><td>Ear (pinna), epiglottis, larynx (some cartilages)</td></tr>
+      <tr><td><strong>Fibrocartilage</strong></td><td>Dense type I collagen bundles visible as coarse pink fibers. Chondrocytes in short columns (no real perichondrium). No glassy matrix.</td><td>Intervertebral discs, pubic symphysis, menisci</td></tr>
+    </table>
+    <div class="tip">Mnemonic: <strong>HEF</strong> — Hyaline (glass), Elastic (ears/epiglottis), Fibro (force-bearing).</div>
+  </div>
+</div>
+
+<!-- BONE -->
+<div class="section-sep">Bone</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Bone — key features</h2>
+    <p><span class="key">Vascularized</span> (unlike cartilage). Matrix mineralized (Ca/PO₄). Collagen type I.</p>
+    <h3>Four cell types</h3>
+    <ul>
+      <li><span class="key">Osteoprogenitor</span>: mesenchyme-derived, mitotic, in periosteum/endosteum/Haversian canals.</li>
+      <li><span class="key">Osteoblasts</span>: cuboidal-columnar, basophilic (lots of RER), secrete osteoid. Arrayed on bone surface.</li>
+      <li><span class="key">Osteocytes</span>: trapped osteoblasts in lacunae. Flat nucleus. Processes in canaliculi connecting adjacent cells.</li>
+      <li><span class="key">Osteoclasts</span>: huge, multinucleated (up to 50 nuclei), acidophilic. Sit in <span class="key">Howship's lacunae</span> = active resorption.</li>
+    </ul>
+    <div class="tip">Mnemonic: "Progenitors Build Cages, Clasts Demolish"</div>
+  </div>
+
+  <div class="card">
+    <h2>Compact bone — osteon structure</h2>
+    <p>Recognize: concentric lamellae around a central <span class="key">Haversian canal</span> (blood vessels) = one <span class="key">osteon (Haversian system)</span>.</p>
+    <ul>
+      <li><span class="key">Haversian canal</span>: longitudinal, has capillaries, lined by osteoprogenitor cells.</li>
+      <li><span class="key">Volkmann's canals</span>: transverse, connect Haversian canals to periosteum/marrow.</li>
+      <li><span class="key">Interstitial lamellae</span>: remnants of old remodeled osteons between current ones.</li>
+      <li><span class="key">Outer/inner circumferential lamellae</span>: under periosteum / above endosteum.</li>
+    </ul>
+    <div class="tip">Canaliculi visible as fine radiating lines from each lacuna. Counting lamellae ~ approximates bone age.</div>
+  </div>
+
+  <div class="card">
+    <h2>Woven vs lamellar bone</h2>
+    <table>
+      <tr><th></th><th>Woven (primary)</th><th>Lamellar (secondary)</th></tr>
+      <tr><td>Collagen</td><td>Random, irregular</td><td>Regular, alternating helices</td></tr>
+      <tr><td>Strength</td><td>Weak</td><td>Strong</td></tr>
+      <tr><td>Formation</td><td>Fast (fetal, fracture repair)</td><td>Slow (mature bone)</td></tr>
+    </table>
+    <h3>Spongy vs compact bone</h3>
+    <p><span class="key">Compact</span>: dense, osteons visible. <span class="key">Spongy/trabecular</span>: network of trabeculae, spaces = marrow. Epiphyses = mostly spongy inside; diaphysis = hollow compact cylinder.</p>
+  </div>
+
+  <div class="card">
+    <h2>Intramembranous ossification</h2>
+    <p>Direct. No cartilage template. Flat bones (frontal, parietal, mandible, clavicle).</p>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div>Mesenchymal cells aggregate (highly vascularized zone)</div></div>
+      <div class="step"><div class="step-n">2</div><div>Directly differentiate into osteoblasts → secrete <span class="key">osteoid</span> (unmineralized matrix)</div></div>
+      <div class="step"><div class="step-n">3</div><div>Collagen fibers random → <span class="key">woven bone</span> forms (primary spongiosa)</div></div>
+      <div class="step"><div class="step-n">4</div><div>Ca²⁺ deposits → mineralization. Osteoblasts become <span class="key">osteocytes</span>.</div></div>
+      <div class="step"><div class="step-n">5</div><div>Periosteum forms at surface from remaining mesenchyme</div></div>
+      <div class="step"><div class="step-n">6</div><div>Appositional deposition → compact bone OR hematopoietic tissue → cancellous bone</div></div>
+    </div>
+    <div class="tip">What you see: woven spicules/trabeculae of bone rimmed by osteoblasts, surrounded by vascular mesenchyme.</div>
+  </div>
+
+  <div class="card full">
+    <h2>Endochondral ossification — the big one</h2>
+    <p style="margin-bottom:6px">Indirect. Uses hyaline cartilage template. Most long and short bones.</p>
+    <div class="grid" style="gap:6px">
+      <div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div>Hyaline cartilage model grows (appositionally + interstitially)</div></div>
+          <div class="step"><div class="step-n">2</div><div>Chondrocytes in <span class="key">diaphysis center</span> hypertrophy → lacunae enlarge → matrix calcifies</div></div>
+          <div class="step"><div class="step-n">3</div><div>Perichondrium vascularizes → chondrogenic cells → osteoprogenitor → <span class="key">perichondrium → periosteum</span></div></div>
+          <div class="step"><div class="step-n">4</div><div>Hypertrophic chondrocytes secrete <span class="key">VEGF</span> → vascular invasion</div></div>
+          <div class="step"><div class="step-n">5</div><div>Osteoblasts deposit bone → <span class="key">subperiosteal bone collar</span> (by intramembranous!)</div></div>
+          <div class="step"><div class="step-n">6</div><div>Hypertrophic chondrocytes die → <span class="key">empty confluent lacunae</span> → future marrow cavity</div></div>
+          <div class="step"><div class="step-n">7</div><div>Osteoclasts etch holes → <span class="key">periosteal/osteogenic bud</span> enters</div></div>
+          <div class="step"><div class="step-n">8</div><div>Osteoblasts deposit bone on calcified cartilage → calcified cartilage/bone complex</div></div>
+          <div class="step"><div class="step-n">9</div><div>Osteoclasts resorb complex → <span class="key">enlarging marrow cavity</span></div></div>
+        </div>
+      </div>
+      <div>
+        <h3>Primary vs secondary centers</h3>
+        <table>
+          <tr><th></th><th>Primary</th><th>Secondary</th></tr>
+          <tr><td>Location</td><td>Diaphysis</td><td>Epiphyses</td></tr>
+          <tr><td>Timing</td><td>~3rd fetal month</td><td>After birth</td></tr>
+          <tr><td>Result</td><td>Marrow cavity + bone collar</td><td>Spongy bone in epiphysis</td></tr>
+        </table>
+        <h3 style="margin-top:8px">Epiphyseal growth plate zones</h3>
+        <table>
+          <tr><th>Zone</th><th>What you see</th></tr>
+          <tr><td>Reserve/resting zone</td><td>Small chondrocytes, no columns, stem cell reserve</td></tr>
+          <tr><td>Proliferative zone</td><td>Flat chondrocytes in columns, mitotic figures</td></tr>
+          <tr><td>Hypertrophic zone</td><td>Large chondrocytes, enlarged lacunae, matrix calcifies</td></tr>
+          <tr><td>Vascular invasion zone</td><td>Blood vessels enter, osteoblasts deposit on calcified cartilage</td></tr>
+        </table>
+        <div class="tip">What you see in section: cartilage at top (epiphysis) → columns → hypertrophied cells → spicules of bone below (primary spongiosa).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOOD -->
+<div class="section-sep">Blood & Hematopoietic System</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card full">
+    <h2>Blood smear — cell recognition (Wright/Giemsa stain)</h2>
+    <table>
+      <tr><th>Cell</th><th>% of WBCs</th><th>Recognition</th><th>Key function</th></tr>
+      <tr><td><strong>RBC (erythrocyte)</strong></td><td>—</td><td>Biconcave, anucleate, pale pink/biconcave disk. ~7.8 µm. Central pallor.</td><td>O₂/CO₂ transport (hemoglobin). Lifespan 120 d.</td></tr>
+      <tr><td><strong>Neutrophil</strong></td><td>60–70%</td><td>Multilobed nucleus (2–5 lobes) connected by chromatin threads. Pale pink cytoplasm. Small specific granules (barely visible).</td><td>First responder to bacterial infection. Phagocytic.</td></tr>
+      <tr><td><strong>Eosinophil</strong></td><td>2–4%</td><td>Bilobed nucleus. <span class="warn">Large bright pink/red specific granules</span>. Easy to spot.</td><td>Parasites, allergic reactions.</td></tr>
+      <tr><td><strong>Basophil</strong></td><td>~0.5%</td><td>Bilobed nucleus (often obscured). <span class="warn">Large dark purple granules</span> that can cover the nucleus. Rare.</td><td>Releases histamine/heparin.</td></tr>
+      <tr><td><strong>Lymphocyte</strong></td><td>~28%</td><td>Large round dark nucleus, thin rim of pale blue cytoplasm. Small cell. Two sizes: small (B/T) and large (NK/activated).</td><td>Adaptive immunity (B/T cells).</td></tr>
+      <tr><td><strong>Monocyte</strong></td><td>~5%</td><td>Largest WBC. Kidney/horse-shoe-shaped nucleus. Abundant grey-blue cytoplasm. Becomes macrophage in tissue.</td><td>Phagocytosis, antigen presentation.</td></tr>
+      <tr><td><strong>Platelet</strong></td><td>—</td><td>Tiny anucleate fragments, ~2–3 µm. Violet. In clusters or alone.</td><td>Coagulation. From megakaryocytes.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- MUSCLE -->
+<div class="section-sep">Muscle Tissue</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Three types — fast recognition</h2>
+    <table>
+      <tr><th>Feature</th><th>Skeletal</th><th>Cardiac</th><th>Smooth</th></tr>
+      <tr><td>Striation</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Nuclei</td><td>Multiple, peripheral (subsarcolemmal)</td><td>1–2, central</td><td>1, central, cigar-shaped</td></tr>
+      <tr><td>Shape</td><td>Long cylinder, parallel</td><td>Branching, shorter</td><td>Spindle cells, interlocking</td></tr>
+      <tr><td>Special structure</td><td>—</td><td><span class="key">Intercalated discs</span> (dark transverse bands)</td><td>Dense bodies (actin anchor)</td></tr>
+      <tr><td>Control</td><td>Voluntary</td><td>Involuntary</td><td>Involuntary</td></tr>
+    </table>
+    <div class="tip">Intercalated discs = gap junctions + desmosomes + fascia adherens at cell borders in cardiac muscle. Look for dark transverse lines crossing the full fiber width.</div>
+  </div>
+
+  <div class="card">
+    <h2>Skeletal muscle — architecture</h2>
+    <p><span class="key">Endomysium</span>: basal lamina + reticular fibers around each fiber.</p>
+    <p><span class="key">Perimysium</span>: loose CT around fascicles (bundles).</p>
+    <p><span class="key">Epimysium</span>: dense irregular CT around whole muscle.</p>
+    <h3>Sarcomere bands (H&E)</h3>
+    <p><span class="key">A band</span> (dark/anisotropic) = myosin thick filaments. Width unchanged during contraction.</p>
+    <p><span class="key">I band</span> (light) = actin only. Narrows during contraction.</p>
+    <p><span class="key">H band</span>: center of A, myosin tails only. Disappears on full contraction.</p>
+    <p><span class="key">Z disk</span>: bisects I band, anchors actin. Moves closer during contraction.</p>
+    <p><span class="key">M line</span>: bisects H band.</p>
+    <div class="tip">Mnemonic: "I Am Healthy, Mighty Z" (I band → A band → H zone → M line → Z disk)</div>
+  </div>
+</div>
+
+<!-- NERVOUS TISSUE -->
+<div class="section-sep">Nervous Tissue</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card">
+    <h2>Neurons — recognition</h2>
+    <p>Large cells, 5–150 µm. <span class="key">Prominent nucleus</span> (large, spherical, central, finely dispersed chromatin + visible nucleolus) surrounded by cytoplasm with <span class="key">Nissl bodies</span> (basophilic clumps = stacked RER + polyribosomes).</p>
+    <p style="margin-top:4px"><span class="key">Axon hillock</span>: cone-shaped, no Nissl bodies (only SER). Key LM landmark.</p>
+    <h3>Morphological types</h3>
+    <ul>
+      <li><span class="key">Multipolar</span>: 1 axon + ≥2 dendrites. Most common. Motor neurons, Purkinje cells.</li>
+      <li><span class="key">Bipolar</span>: 1 axon + 1 dendrite. Retina, olfactory epithelium, inner ear.</li>
+      <li><span class="key">Pseudounipolar</span>: 1 process splits into 2. Dorsal root ganglia (sensory PNS).</li>
+    </ul>
+    <div class="tip">Nissl bodies = RER = protein synthesis. Absent at axon hillock. Chromatolysis (Nissl dissolves) = nerve injury sign.</div>
+  </div>
+
+  <div class="card">
+    <h2>Neuroglia — support cells</h2>
+    <table>
+      <tr><th>Cell</th><th>Location</th><th>Key feature</th></tr>
+      <tr><td><strong>Astrocytes</strong></td><td>CNS</td><td>Star-shaped, many processes. Fibrous (white matter) or protoplasmic (grey matter). K⁺ buffering, BBB.</td></tr>
+      <tr><td><strong>Oligodendrocytes</strong></td><td>CNS</td><td>Small dark nucleus, round. Myelinate <em>multiple</em> CNS axons.</td></tr>
+      <tr><td><strong>Microglia</strong></td><td>CNS</td><td>Small, elongated, dark irregular nucleus. CNS macrophage. Self-renewing.</td></tr>
+      <tr><td><strong>Ependymal cells</strong></td><td>CNS ventricles</td><td>Simple cuboidal/columnar, motile cilia. Line ventricles and central canal.</td></tr>
+      <tr><td><strong>Schwann cells</strong></td><td>PNS</td><td>Myelinate 1 internode of 1 axon. Form neurolemma. Enable axon regeneration.</td></tr>
+      <tr><td><strong>Satellite cells</strong></td><td>PNS ganglia</td><td>Surround neuron soma in ganglia. Regulate microenvironment.</td></tr>
+    </table>
+    <div class="tip">Key comparison: Schwann cell = 1 axon; oligodendrocyte = multiple axons.</div>
+  </div>
+
+  <div class="card">
+    <h2>Peripheral nerve structure</h2>
+    <p><span class="key">Endoneurium</span>: around each axon + myelin sheath.</p>
+    <p><span class="key">Perineurium</span>: around each fascicle (bundle of axons).</p>
+    <p><span class="key">Epineurium</span>: dense CT around whole nerve.</p>
+    <h3>Myelin sheath</h3>
+    <p>Schwann cell wraps around axon (PNS). Gaps = <span class="key">nodes of Ranvier</span>. Segment between = internode. Allows saltatory conduction.</p>
+    <p style="margin-top:4px">In H&E: myelin appears as empty space (dissolved) or pale ring. In osmium tetroxide: myelin stains black.</p>
+  </div>
+
+  <div class="card">
+    <h2>CNS vs PNS grey matter</h2>
+    <h3>Spinal cord grey matter</h3>
+    <p>H-shaped grey matter. Large motor neurons in anterior horn (ventral), pseudounipolar sensory in dorsal root ganglia.</p>
+    <h3>Ganglia</h3>
+    <p>PNS. Neuron cell bodies surrounded by <span class="key">satellite cells</span> (pale halo around soma). No synapses visible at this level.</p>
+    <h3>Cerebellum recognition</h3>
+    <p>Three layers: outer molecular layer (sparse cells) → Purkinje cell layer (<span class="key">huge flask-shaped neurons in single row</span>) → granule layer (densely packed small dark cells).</p>
+  </div>
+</div>
+
+<!-- QUICK RECALL TABLE -->
+<div class="section-sep">Quick-Reference: "What am I looking at?"</div>
+<div class="grid" style="margin-top:8px; margin-bottom:10px">
+  <div class="card full">
+    <h2>Tissue recognition cues</h2>
+    <table>
+      <tr><th>If you see…</th><th>Think…</th><th>Key confirming feature</th></tr>
+      <tr><td>Empty spaces lined by flat cells</td><td>Simple squamous epithelium (alveolus, endothelium, mesothelium)</td><td>Thin nuclei, no layers, single cell thickness</td></tr>
+      <tr><td>Columnar cells with brush border + goblet cells</td><td>Intestinal epithelium (simple columnar)</td><td>Brush border = microvilli. Villi → small intestine. Crypts only → large intestine.</td></tr>
+      <tr><td>Stratified + keratinized surface layer (no nuclei)</td><td>Epidermis (skin)</td><td>Stratum corneum = anucleate pink keratin. CT dermis below with glands.</td></tr>
+      <tr><td>Pseudostratified epithelium + cilia</td><td>Trachea/bronchi</td><td>All cells contact basal lamina, ciliated apex, goblet cells present</td></tr>
+      <tr><td>Dome-shaped surface cells</td><td>Transitional epithelium (urothelium)</td><td>Bladder/ureter. Cells flatten when distended.</td></tr>
+      <tr><td>Glassy matrix, cells in lacunae, perichondrium</td><td>Hyaline cartilage</td><td>Blue-grey matrix, isogenous groups, no visible fibers</td></tr>
+      <tr><td>Matrix with visible pink fiber network</td><td>Elastic cartilage</td><td>Folding artifacts, epiglottis/ear location</td></tr>
+      <tr><td>Dense pink collagen bundles + chondrocytes in columns</td><td>Fibrocartilage</td><td>No perichondrium, short columns, intervertebral disc</td></tr>
+      <tr><td>Concentric rings around central vessel</td><td>Osteon (Haversian system) = compact bone</td><td>Lacunae with osteocytes, canaliculi, Haversian canal</td></tr>
+      <tr><td>Cartilage → columns → hypertrophied cells → bone spicules</td><td>Endochondral ossification / epiphyseal plate</td><td>Zones: reserve → proliferative → hypertrophic → vascular invasion</td></tr>
+      <tr><td>Woven bone trabeculae + osteoblasts rimming them + vascular tissue</td><td>Intramembranous ossification</td><td>No cartilage. Random collagen. Primary spongiosa.</td></tr>
+      <tr><td>Long striated multinucleated cells, peripheral nuclei</td><td>Skeletal muscle</td><td>Sarcomere bands (A/I/Z). Multiple peripheral nuclei.</td></tr>
+      <tr><td>Striated + branching + intercalated discs</td><td>Cardiac muscle</td><td>Intercalated discs = dark transverse lines. Central nuclei.</td></tr>
+      <tr><td>Spindle cells, no striations, central nucleus</td><td>Smooth muscle</td><td>Sheets, no striations. GI/vascular.</td></tr>
+      <tr><td>Large cell, big nucleus + nucleolus, Nissl bodies (basophilic clumps)</td><td>Neuron</td><td>Nissl bodies absent at axon hillock. Multipolar most common.</td></tr>
+      <tr><td>Pale axons + myelin rings in cross-section</td><td>Peripheral nerve (myelinated)</td><td>Endoneurium/perineurium/epineurium layers. Schwann cells.</td></tr>
+      <tr><td>Follicles filled with pink colloid, cuboidal cells</td><td>Thyroid gland</td><td>Follicular cells. Parafollicular C cells between follicles.</td></tr>
+      <tr><td>Cords of cells, lots of capillaries, acidophils + basophils</td><td>Adenohypophysis</td><td>Physically separates from neurohypophysis. Chromophobes = pale.</td></tr>
+      <tr><td>Empty signet-ring cells (dissolved fat)</td><td>White adipose tissue</td><td>Unilocular, peripheral flat nucleus. Dense CT capsule if organ.</td></tr>
+    </table>
+  </div>
+</div>
+
+<p style="text-align:center; font-size:11px; color:#999; font-family:sans-serif; margin-top:8px">Good luck · in bocca al lupo 🤌</p>
+
+</div>
+</body>
+</html>
